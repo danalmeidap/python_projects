@@ -48,7 +48,7 @@ def jo_ken_po(player, computer):
 
 def joken_game():
     """
-    Parte de validações para jo jogo, em que o jogador escolhe jogar ou não
+    Parte de validações para o jogo, em que o jogador escolhe jogar ou não
     :return: função sem retorno
     """
     print('Do you want to play jo_ken_po?')
