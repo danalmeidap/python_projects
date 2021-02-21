@@ -15,7 +15,7 @@ def player_choice():
 
 def enemy_choice():
     """
-    Escolha do computador, baseado num random.choise entre as opções existentes.
+    Escolha do computador, baseado num random.choice entre as opções existentes.
     :return: A escolha do adversário entre as opções válidas.
     """
     jaken_options = ['rock', 'paper', 'scissors']
