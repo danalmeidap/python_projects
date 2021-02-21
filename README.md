@@ -1,2 +1,2 @@
-# dices.py
-Python application for playing dices
+
+Some python beginner applications
