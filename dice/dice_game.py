@@ -4,11 +4,13 @@ from time import sleep
 
 def rolling_dice(dice=1, value=6):
     from random import randint
-    for i in range(dice):
+    cont = 0
+    while cont != dice:
         roll_dice = randint(1, value)
         print('Rolling', flush=True)
         sleep(0.5)
         print(roll_dice)
+        cont += 1
 
 
 def value_check(msg):
