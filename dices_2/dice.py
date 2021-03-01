@@ -1,7 +1,8 @@
-from dices import DiceSimulator
+from dices import DiceSimulator, end_game
 
 dice = DiceSimulator()
 try:
     dice.rolling()
 finally:
-    print("Thank for playing!")
+    end_game()
+
