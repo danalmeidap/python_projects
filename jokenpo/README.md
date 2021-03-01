@@ -1,0 +1,1 @@
+A jokenpo game, using some validations to check the input and receive a valid option

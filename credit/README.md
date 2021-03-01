@@ -1,0 +1,1 @@
+A cs50 exercise. The user's input will be check and a cards brand will be returned
