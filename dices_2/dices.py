@@ -44,6 +44,13 @@ def confirm_no():
         print('Please, use only y(es) or n(o) for answer.')
 
 
+def end_game():
+    
+    print("-" * 15)
+    print("Thank for playing!")
+    print("-" * 15)
+
+
 class DiceSimulator:
     def __init__(self):
         self.minimum = 1
@@ -65,6 +72,8 @@ class DiceSimulator:
                     print('Do you want to play again?')
                 else:
                     check = confirm_no()
+            else:
+                print("Please, use only y(es) or n(o)")
 
     def roll(self):
         count = 0
