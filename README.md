@@ -1,2 +1,2 @@
 
-Some python beginner applications
+Repository with some python's beginner applications.
