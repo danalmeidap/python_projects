@@ -9,6 +9,6 @@ def cls():
 
 
 
-minha_conta = Conta(TipoConta.PessoaFisica, 1200.00, 200, "Daniel Almeida")
-outra_conta = Conta(TipoConta.PessoaJuridica, 2000.00, 500, "Maria Patricio")
+minha_conta = Conta(1, "R$1200.00", 200, "Daniel Almeida")
+print(minha_conta)
 

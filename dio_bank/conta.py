@@ -1,5 +1,4 @@
 from tipoconta import TipoConta
-from enum import Enum
 
 
 class Conta:
@@ -17,7 +16,7 @@ class Conta:
     
     @TipoConta.setter
     def TipoConta(self,valor):
-        if isinstance(valor, str):
+        if isinstance(valor, int):
             valor = TipoConta(valor)
         self._TipoConta = valor
         return valor
@@ -58,7 +57,7 @@ class Conta:
     def Cliente(self, nome):
         if isinstance(nome, int):
             nome = str(nome)
-        self._Cliente = nome
+        self._Cliente = nome.title().strip()
         return nome
 
 
