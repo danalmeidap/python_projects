@@ -1,0 +1,12 @@
+def exibir_menu():
+    print("DIO Bank a seu dispor!!!")
+    print("Informe a opção desejada:")
+    print("-"*13)
+    print("1- Listar contas")
+    print("2- Inserir nova conta")
+    print("3- Transferir")
+    print("4- Sacar")
+    print("5- Depositar")
+    print("C- Limpar Tela")
+    print("X- Sair")	
+    print("-"*13)

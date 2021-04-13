@@ -16,8 +16,6 @@ class Conta:
     
     @TipoConta.setter
     def TipoConta(self,valor):
-        if isinstance(valor, int):
-            valor = TipoConta(valor)
         self._TipoConta = valor
         return valor
 
@@ -29,8 +27,6 @@ class Conta:
     
     @Saldo.setter
     def Saldo(self, valor):
-        if isinstance(valor, str):
-            valor = float(valor.replace("R$", ""))
         self._Saldo = valor
         return valor
 
@@ -42,8 +38,6 @@ class Conta:
     
     @Credito.setter
     def Credito(self,valor):
-        if isinstance(valor, str):
-            valor = float(valor.replace("R$", ""))
         self._Credito = valor
         return valor
     
@@ -55,28 +49,22 @@ class Conta:
 
     @Cliente.setter
     def Cliente(self, nome):
-        if isinstance(nome, int):
-            nome = str(nome)
         self._Cliente = nome.title().strip()
         return nome
 
 
     def Sacar(self, valor_saque):
         if self.Saldo - valor_saque < self.Credito * -1:
-            print("Saldo insuficiente")
+            print(f"Não foi possível completar a operação de {valor_saque}")
             return False
         self.Saldo -= valor_saque
-        print(f'Saldo atual da conta de {self.Cliente} é: {self.Saldo}')
+        print(f'Saldo atual da conta de {self.Cliente} é: R$ {self.Saldo:.2f}')
         return True
     
 
     def Depositar(self, valor_deposito):
-        if valor_deposito > 0:
-            self.Saldo += valor_deposito
-            print(f'Saldo atual da conta de {self.Cliente} é {self.Saldo}')
-        else:
-            print('Reveja o valor de deposito e digite novamente')
-            print(f'Saldo atual da conta de {self.Cliente} é: {self.Saldo}')
+        self.Saldo += valor_deposito
+        print(f'Saldo atual da conta de {self.Cliente} é R$ {self.Saldo:.2f}')
     
 
     def Transferir(self, valor_transferencia, conta_destino):
@@ -88,10 +76,10 @@ class Conta:
         retorno = " "
         retorno += f'TipoConta: {self.TipoConta}'  + " | "
         retorno += f'Nome: {self.Cliente}' + " | "
-        retorno += f'Saldo: {self.Saldo}'  + " | "
-        retorno += f'Crédito: {self.Credito}'
+        retorno += f'Saldo: R$ {self.Saldo:.2f}'  + " | "
+        retorno += f'Crédito: R$ {self.Credito:.2f}'
         return retorno
 
 
-    def __repr(self):
+    def __repr__(self):
         return self.__str__
