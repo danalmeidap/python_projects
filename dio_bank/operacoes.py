@@ -44,8 +44,7 @@ def check_float(msg):
             print('\n\033[0;31mUser Interrupt;\033[m')
             return 0
         else:
-            if value >= 0:
-                return value
+            return value
 
 
 def listar_contas():
@@ -83,7 +82,7 @@ def depositar():
     while valor_depositar < 0:
         valor_depositar = check_float("Digite o valor a ser depositado: ")
     if indice_conta < len(contas):
-        contas[indice_conta].Depositar(valor_depositar)
+        contas[indice_conta].depositar(valor_depositar)
         print(f'Depósito para a conta de {contas[indice_conta].Cliente} em {data} as {hora}')
     else:
         print(f"Erro de indice em {data} as {hora}")
@@ -93,11 +92,11 @@ def sacar():
     indice_conta = check_int("Digite o número da conta: ")
     while indice_conta < 0:
         indice_conta = check_int("Digite o número da conta: ")
-    valor_sacar = check_float("Digite o valor a ser depositado: ")
+    valor_sacar = check_float("Digite o valor a ser sacado: ")
     while valor_sacar < 0:
-        valor_sacar = check_float("Digite o valor a ser depositado: ")
+        valor_sacar = check_float("Digite o valor a ser sacado: ")
     if indice_conta < len(contas):
-        contas[indice_conta].Sacar(valor_sacar)
+        contas[indice_conta].sacar(valor_sacar)
         print(f'Saque feito em {data} as {hora}')
     else:
         print(f"Erro de indice em {data} as {hora}")
@@ -114,7 +113,7 @@ def transferir():
     while valor_transferido < 0:
         valor_transferido = check_float("Digite o valor a ser transferido: ")
     if indice_conta and indice_conta_destino < len(contas):
-        contas[indice_conta].Transferir(valor_transferido, contas[indice_conta_destino])
+        contas[indice_conta].transferir(valor_transferido, contas[indice_conta_destino])
         print(f'Transferência para a conta de {contas[indice_conta].Cliente} para {contas[indice_conta_destino].Cliente} em {data} as {hora}')
 
 

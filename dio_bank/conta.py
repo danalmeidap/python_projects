@@ -1,3 +1,5 @@
+from tipoconta import TipoConta
+
 class Conta:
     def __init__(self, TipoConta, Saldo, Credito, Cliente):
         self.TipoConta = TipoConta
@@ -6,52 +8,82 @@ class Conta:
         self.Cliente = Cliente
 
     @property
-    def TipoConta(self):
+    def tipoConta(self):
         return self._TipoConta
 
-    @TipoConta.setter
-    def TipoConta(self, valor):
-        self._TipoConta = valor
+    @tipoConta.setter
+    def tipoConta(self, valor):
+        self._TipoConta = TipoConta(valor)
 
     @property
-    def Saldo(self):
+    def saldo(self):
         return self._Saldo
 
-    @Saldo.setter
-    def Saldo(self, valor):
+    @saldo.setter
+    def saldo(self, valor):
         self._Saldo = valor
 
     @property
-    def Credito(self):
+    def credito(self):
         return self._Credito
 
-    @Credito.setter
-    def Credito(self, valor):
+    @credito.setter
+    def credito(self, valor):
         self._Credito = valor
 
     @property
-    def Cliente(self):
+    def cliente(self):
         return self._Cliente
 
-    @Cliente.setter
-    def Cliente(self, nome):
+    @cliente.setter
+    def cliente(self, nome):
         self._Cliente = nome.title().strip()
-
-    def Sacar(self, valor_saque):
+    
+    def sacar(self, valor_saque):
         if self.Saldo - valor_saque < self.Credito * -1:
             print(f"Não foi possível completar a operação de {valor_saque}")
             return False
         self.Saldo -= valor_saque
+        self.mostrar_saque(valor_saque)
         print(f'Saldo atual da conta de {self.Cliente} é: R$ {self.Saldo:.2f}')
         return True
+    
+    def mostrar_saque(self,montante):
+        total = montante
+        cedula = 100
+        total_cedulas = 0
+        print('Foram sacadas :', end= '')
+        while True:
+            if total >= cedula:
+                total -= cedula
+                total_cedulas += 1
+            else:
+                if total_cedulas > 0:
+                    print(f'{total_cedulas} cédulas de R$ {cedula}')
+                if cedula == 100:
+                    cedula = 50
+                elif cedula == 50:
+                    cedula = 20
+                elif cedula == 20:
+                    cedula = 10
+                elif cedula == 10:
+                    cedula= 5
+                elif cedula == 5:
+                    cedula = 2
+                elif cedula == 2:
+                    cedula = 1
+                total_cedulas = 0
+                if total == 0 or cedula == 1:
+                    break
 
-    def Depositar(self, valor_deposito):
+
+    def depositar(self, valor_deposito):
         self.Saldo += valor_deposito
         print(f'Saldo atual da conta de {self.Cliente} é R$ {self.Saldo:.2f}')
 
-    def Transferir(self, valor_transferencia, conta_destino):
-        if self.Sacar(valor_transferencia):
-            conta_destino.Depositar(valor_transferencia)
+    def transferir(self, valor_transferencia, conta_destino):
+        if self.sacar(valor_transferencia):
+            conta_destino.depositar(valor_transferencia)
 
     def __str__(self):
         retorno = " "
