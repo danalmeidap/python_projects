@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="17938613-0fa2-418a-9e4e-b4bd7caa48d6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/dio_bank/conta.py" beforeDir="false" afterPath="$PROJECT_DIR$/dio_bank/conta.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dio_bank/dio_bank.py" beforeDir="false" afterPath="$PROJECT_DIR$/dio_bank/dio_bank.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dio_bank/operacoes.py" beforeDir="false" afterPath="$PROJECT_DIR$/dio_bank/operacoes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dio_bank/tipoconta.py" beforeDir="false" afterPath="$PROJECT_DIR$/dio_bank/tipoconta.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dio_bank/README.MD" beforeDir="false" afterPath="$PROJECT_DIR$/dio_bank/README.MD" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
