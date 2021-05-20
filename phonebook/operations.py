@@ -59,7 +59,7 @@ def menu():
     print('2- Show phonebook')
     print('3- Save')
     print('4- Clear screen')
-    print('0- Sair')
+    print('0- Quit')
     return int(input("Option: "))
 
 
