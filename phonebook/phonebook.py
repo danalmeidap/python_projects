@@ -31,7 +31,7 @@ class Phonebook:
         except IOError:
             return False
 
-    @staticmethod
+
     def create_phonebook(self):
         if self.check_phonebook(self.default_file):
             return "Phonebook Already exists"
@@ -44,34 +44,36 @@ class Phonebook:
 
     def save_contacts(self):
         try:
-            with open(self.default_file, 'a') as file:
+            with open(self.default_file, 'w') as file:
                 if file.writable():
                     for contact in self.contact_list:
-                        file.write(contact.__repr__() + "\n")
+                        file.write(contact.__str__() + "\n")
         except FileNotFoundError:
             return "File does not exist"
 
-    def open_phonebook(self):
+    @staticmethod
+    def open_phonebook(phonebook):
         try:
-            with open(self.default_file, 'r') as file:
-                if file.readible():
+            with open(phonebook.default_file, 'r') as file:
+                if file.readable():
                     contacts = 0
                     for line in file.readlines():
-                        self.contact_list.append(Contact.separate_information(line.rstrip()))
+                        phonebook.contact_list.append(Contact.separate_information(line.rstrip()))
                         contacts += 1
                 print(f'{contacts} are found on file')
         except FileNotFoundError:
-            return "File does not exist"
+            print("File does not exist")
 
     def __repr__(self):
         if len(self.contact_list) == 0:
             return "No contacts in the list"
         else:
-            representation = "Contact List"
-            representation += "\n--------------------------------------"
+            representation = "Contact List\n"
+            representation += "\--------------------------------------/ \n"
+            representation += 'Name                Number'
             for contact in self.contact_list:
                 representation += "\n" + f'{contact.__str__()}'
-            representation += "\n--------------------------------------"
+            representation += "\n\--------------------------------------/"
             return representation
 
     def __str__(self):

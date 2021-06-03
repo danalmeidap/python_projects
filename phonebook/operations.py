@@ -59,7 +59,7 @@ def menu():
     print('2- Show phonebook')
     print('3- Save')
     print('4- Clear screen')
-    print('0- Sair')
+    print('0- Quit')
     return int(input("Option: "))
 
 
@@ -83,5 +83,7 @@ def save_contacts(book):
 def show_phonebook(book):
     print(book.show_phonebook(book))
 
-
+def load_phonebook(book):
+  book.open_phonebook(book)
+  
 phonebook = Phonebook()

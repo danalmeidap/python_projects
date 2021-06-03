@@ -31,7 +31,7 @@ class Contact:
         return contact
 
     def __repr__(self):
-        return f'Name: {self.name}, Number: {self.number}'
+        return f'{self.name:8},    {self.number:6} '
 
     def __str__(self):
         return self.__repr__()
